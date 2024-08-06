@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><advertiserfacades><testclass>my.advertiser.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass><testclass>my.advertiser.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass></advertiserfacades></testclasses>

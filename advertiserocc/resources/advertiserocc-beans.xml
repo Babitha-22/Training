@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<!--
+	ATTENTION: This is just an example file. You have to edit it according to your needs.
+-->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
+
+	<!--
+		Example Data POJO
+	
+	<bean class="yemptypackage.data.MyPojo">
+		<property name="id" type="String"/>
+		<property name="flag" type="boolean"/>
+	</bean>
+	-->
+
+	<bean class="my.advertiser.facades.data.AdvertiserWsDTO">
+		<property name="advertiserCode" type="String"/>
+		<property name="advertiser" type="String"/>
+		<property name="clicks" type="Long"/>
+		<property name="impressions" type="Long"/>
+		<property name="cost" type="Long"/>
+	</bean>
+
+	<bean class="my.advertiser.facades.data.AdvertiserListWsDTO">
+			<property name="advertisers" type="java.util.List&lt;my.advertiser.facades.data.AdvertiserWsDTO&gt;"/>
+	</bean>
+
+	<bean class="my.advertiser.facades.data.AdvertiserListData">
+		<property name="advertisers" type="java.util.List&lt;my.advertiser.facades.data.AdvertiserData&gt;"/>
+	</bean>
+
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.advertiser.controllers"/>
+
+    <bean id="advertiserMapper" parent="fieldMapper">
+        <property name="sourceClass" value="my.advertiser.facades.data.AdvertiserData"/>
+        <property name="destClass" value="my.advertiser.facades.data.AdvertiserWsDTO"/>
+    </bean>
+    <!--  Field mappings  -->
+    <bean parent="fieldSetLevelMapping" id="advertiserWsDTOFieldSetLevelMapping">
+        <property name="dtoClass" value="my.advertiser.facades.data.AdvertiserWsDTO"/>
+        <property name="levelMapping">
+            <map>
+                <entry key="BASIC" value="advertiserCode,advertiser"/>
+                <entry key="DEFAULT" value="advertiserCode,advertiser,clicks"/>
+                <entry key="FULL" value="advertiserCode,advertiser,clicks,impressions,cost"/>
+            </map>
+        </property>
+    </bean>
+    <bean parent="fieldSetLevelMapping" id="advertiserListWsDTOFieldSetLevelMapping">
+        <property name="dtoClass" value="my.advertiser.facades.data.AdvertiserWsDTO"/>
+        <property name="levelMapping">
+            <map>
+                <entry key="BASIC" value="advertiser"/>
+                <entry key="DEFAULT" value="advertiser(DEFAULT)"/>
+                <entry key="FULL" value="advertiser(FULL)"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
